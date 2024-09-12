@@ -1,1 +1,1 @@
-Grishanov Egor repositoriy
+Grishanov Egor repository
