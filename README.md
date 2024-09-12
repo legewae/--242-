@@ -1,1 +1,1 @@
-Grishanov Egor repository
+ФИТ 242 Гришанов Егор
