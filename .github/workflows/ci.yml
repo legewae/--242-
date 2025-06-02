@@ -13,6 +13,9 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Checking fmt
+      run: make fmt
+    
+    - name: Checking fmt
       run: make check_fmt
     
     - name: Run test
