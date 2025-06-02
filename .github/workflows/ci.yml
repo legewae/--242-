@@ -12,8 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Checking fml
-      run: make check_fml
+    - name: Checking fmt
+      run: make check_fmt
     
     - name: Run test
       run: make test
