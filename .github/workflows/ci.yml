@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Checking fmt
+    - name: Fix formatting
       run: make fmt
     
     - name: Checking fmt
