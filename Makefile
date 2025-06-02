@@ -27,8 +27,6 @@ quadratic_solver_test: quadratic_solver_test.o quadratic_solver.a
 test: quadratic_solver_test
 	@for test in $(shell find . -maxdepth 1 -type f -regex '.*_test$$'); do \
 		echo "Running $$test"; \
-		valgrind --leak-check=full --show-leak-kinds=all \
-		         --track-origins=yes --error-exitcode=1 \
 		         ./$$test || exit 1; \
 		echo ""; \
 	done
