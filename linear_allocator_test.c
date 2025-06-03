@@ -13,11 +13,11 @@ void test_alloc() {
 
 	int* a = (int*)linear_alloc(ln,sizeof(int));
 	int* b = (int*)linear_alloc(ln,sizeof(int));
-	int c = (int*)linear_alloc(ln,sizeof(int));
+	int* c = (int*)linear_alloc(ln,sizeof(int));
 
 	*a = 2;
 	*b = 3;
-	assert(*c == NULL);
+	assert(c == NULL);
 	assert(*a == 2);
 	assert(*b == 3);
 	linear_allocator_free(ln);
