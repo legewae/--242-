@@ -15,7 +15,7 @@ linked_list.o: linked_list.c linked_list.h
 	gcc -g -c linked_list.c -o linked_list.o
 
 linked_list.a: linked_list.o
-	ar rc qlinked_list.a linked_list.o
+	ar rc linked_list.a linked_list.o
 
 linked_list_test.o: linked_list_test.c linked_list.h
 	gcc -g -c linked_list_test.c -o linked_list_test.o
