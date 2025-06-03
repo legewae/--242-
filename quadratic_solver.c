@@ -7,27 +7,27 @@ int quadratic_solver(double a, double b, double c, double eps, double **roots){
 
    if(fabs(a)<eps) {
       if(roots) *roots = NULL;
-	  return NOT_QUADRATIC_EQUATION; //Íå ÿâëÿåòñÿ êâàäðàòè÷íûì óðàâíåíèåì
+	  return NOT_QUADRATIC_EQUATION; //ÃÃ¥ Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ ÃªÃ¢Ã Ã¤Ã°Ã Ã²Ã¨Ã·Ã­Ã»Ã¬ Ã³Ã°Ã Ã¢Ã­Ã¥Ã­Ã¨Ã¥Ã¬
    }
 
-   //Êàæäûé êîýôôèöèåíò äåëèì äëÿ ëåãêîñòè âû÷èñëåíèÿ
+   //ÃŠÃ Ã¦Ã¤Ã»Ã© ÃªÃ®Ã½Ã´Ã´Ã¨Ã¶Ã¨Ã¥Ã­Ã² Ã¤Ã¥Ã«Ã¨Ã¬ Ã¤Ã«Ã¿ Ã«Ã¥Ã£ÃªÃ®Ã±Ã²Ã¨ Ã¢Ã»Ã·Ã¨Ã±Ã«Ã¥Ã­Ã¨Ã¿
    b = b / a;
    c = c / a;
 
-   double disc = b * b - 4 * c; //Äèñêðèìèíàíò
+   double disc = b * b - 4 * c; //Ã„Ã¨Ã±ÃªÃ°Ã¨Ã¬Ã¨Ã­Ã Ã­Ã²
    if(disc < -eps) {
 	  *roots = NULL;
-	  return NO_ROOTS; //Íåò êîðíåé
-   } else if(fabs(disc) <= eps) { //Äèñêðèìèíàíò ðàâåí(ïî÷òè) íóëþ
-	  *roots = (double *)malloc(1  *sizeof(double)); //Êîðåíü 1, âûäåëÿåì ïàìÿòü íà 1
-	  (*roots)[0] = -b / 2; //Îäèí êîðåíü
+	  return NO_ROOTS; //ÃÃ¥Ã² ÃªÃ®Ã°Ã­Ã¥Ã©
+   } else if(fabs(disc) <= eps) { //Ã„Ã¨Ã±ÃªÃ°Ã¨Ã¬Ã¨Ã­Ã Ã­Ã² Ã°Ã Ã¢Ã¥Ã­(Ã¯Ã®Ã·Ã²Ã¨) Ã­Ã³Ã«Ã¾
+	  *roots = (double *)malloc(1  *sizeof(double)); //ÃŠÃ®Ã°Ã¥Ã­Ã¼ 1, Ã¢Ã»Ã¤Ã¥Ã«Ã¿Ã¥Ã¬ Ã¯Ã Ã¬Ã¿Ã²Ã¼ Ã­Ã  1
+	  (*roots)[0] = -b / 2; //ÃŽÃ¤Ã¨Ã­ ÃªÃ®Ã°Ã¥Ã­Ã¼
 	  return ONE_ROOT;
    } else {
-	  *roots = (double *)malloc(2 * sizeof(double)); //Êîðíÿ 2, âûäåëÿåì ïàìÿòü íà 2
+	  *roots = (double *)malloc(2 * sizeof(double)); //ÃŠÃ®Ã°Ã­Ã¿ 2, Ã¢Ã»Ã¤Ã¥Ã«Ã¿Ã¥Ã¬ Ã¯Ã Ã¬Ã¿Ã²Ã¼ Ã­Ã  2
 
-	  (*roots)[0] = (-b - sqrt(disc)) / 2; //Ïåðâûé êîðåíü
-	  (*roots)[1] = (-b + sqrt(disc)) / 2; //Âòîðîé êîðåíü
-	  //Êîðíè ïî âîçðàñòàíèþ
+	  (*roots)[0] = (-b - sqrt(disc)) / 2; //ÃÃ¥Ã°Ã¢Ã»Ã© ÃªÃ®Ã°Ã¥Ã­Ã¼
+	  (*roots)[1] = (-b + sqrt(disc)) / 2; //Ã‚Ã²Ã®Ã°Ã®Ã© ÃªÃ®Ã°Ã¥Ã­Ã¼
+	  //ÃŠÃ®Ã°Ã­Ã¨ Ã¯Ã® Ã¢Ã®Ã§Ã°Ã Ã±Ã²Ã Ã­Ã¨Ã¾
 	  return TWO_ROOTS;
    }
 }
