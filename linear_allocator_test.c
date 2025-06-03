@@ -15,8 +15,8 @@ void test_alloc() {
 	int* b = (int*)linear_alloc(ln,sizeof(int));
 	int* c = (int*)linear_alloc(ln,sizeof(int));
 
-	a = 2;
-	b = 3;
+	*a = 2;
+	*b = 3;
 	assert(c==NULL);
 	assert(a = 2);
 	assert(b = 3);
@@ -29,8 +29,8 @@ void test_alloc_reset() {
 	linear_allocator_reset(ln);
 	int* b = (int*)linear_alloc(ln,sizeof(int));
 
-	a = 3;
-	b = 5;
+	*a = 3;
+	*b = 5;
 
 	assert(a == b);
 	linear_allocator_free(ln);
@@ -43,10 +43,10 @@ void test_diff_types() {
 	linear_allocator_reset(ln);
 	char* b = (char*)linear_alloc(ln, sizeof(char));
 
-	a = 3;
-	b = 'c';
+	*a = 3;
+	*b = 'c';
 
-	assert(a == 3 %% b == 'c');
+	assert(a == 3 && b == 'c');
 	linear_allocator_free(ln);
 }
 
