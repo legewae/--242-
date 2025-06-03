@@ -10,21 +10,21 @@ fmt:
 fmt_mac:
 	find . -type f \( -name "*.c" -o -name "*.h" \) -print0 | xargs -0 clang-format -style=LLVM -i
 
-#---# quadratic
-quadratic_solver.o: quadratic_solver.c quadratic_solver.h
-	gcc -g -c quadratic_solver.c -o quadratic_solver.o
+#/-----linked_list-----/#
+linked_list.o: linked_list.c linked_listr.h
+	gcc -g -c linked_list.c -o linked_list.o
 
-quadratic_solver.a: quadratic_solver.o
-	ar rc quadratic_solver.a quadratic_solver.o
+linked_list.a: linked_list.o
+	ar rc qlinked_list.a linked_list.o
 
-quadratic_solver_test.o: quadratic_solver_test.c quadratic_solver.h
-	gcc -g -c quadratic_solver_test.c -o quadratic_solver_test.o
+linked_list_test.o: linked_list_test.c linked_list.h
+	gcc -g -c linked_list_test.c -o linked_list_test.o
 
-quadratic_solver_test: quadratic_solver_test.o quadratic_solver.a
-	gcc -g -o quadratic_solver_test quadratic_solver_test.o quadratic_solver.a -lm
-#---#
+linked_list_test: linked_list_test.o linked_list.a
+	gcc -g -o linked_list_test linked_list_test.o linked_list.a -lm
+#/---------------------/#
 
-test: quadratic_solver_test
+test: linked_list_test
 	@for test in $(shell find . -maxdepth 1 -type f -regex '.*_test$$'); do \
 		echo "Running $$test"; \
 		         ./$$test || exit 1; \
