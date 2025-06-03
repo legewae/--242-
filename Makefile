@@ -10,21 +10,21 @@ fmt:
 fmt_mac:
 	find . -type f \( -name "*.c" -o -name "*.h" \) -print0 | xargs -0 clang-format -style=LLVM -i
 
-#/-----stack-----/#
-stack.o: stack.c stack.h
-	gcc -g -c stack.c -o stack.o
+#/-----linear_allocator-----/#
+linear_allocator.o: linear_allocator.c linear_allocator.h
+	gcc -g -c linear_allocator.c -o linear_allocator.o
 
-stack.a: stack.o
-	ar rc stack.a stack.o
+linear_allocator.a: linear_allocator.o
+	ar rc linear_allocator.a linear_allocator.o
 
-stack_test.o: stack_test.c stack.h
-	gcc -g -c stack_test.c -o stack_test.o
+linear_allocator_test.o: linear_allocator_test.c linear_allocator.h
+	gcc -g -c linear_allocator_test.c -o linear_allocator_test.o
 
-stack_test: stack_test.o stack.a
-	gcc -g -o stack_test stack_test.o stack.a -lm
-#/-----stack-----/#
+linear_allocator_test: linear_allocator_test.o linear_allocator.a
+	gcc -g -o linear_allocator_test linear_allocator_test.o linear_allocator.a -lm
+#/-----linear_allocator-----/#
 
-test: stack_test
+test: linear_allocator_test
 	@for test in $(shell find . -maxdepth 1 -type f -regex '.*_test$$'); do \
 		echo "Running $$test"; \
 		         ./$$test || exit 1; \
