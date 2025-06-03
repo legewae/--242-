@@ -40,7 +40,6 @@ void test_diff_types() {
 	linear_allocator* ln = linear_allocator_init(sizeof(int) * 2);
 
 	int* a = (int*)linear_alloc(ln, sizeof(int));
-	linear_allocator_reset(ln);
 	char* b = (char*)linear_alloc(ln, sizeof(char));
 
 	*a = 3;
