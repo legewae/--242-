@@ -11,7 +11,7 @@ fmt_mac:
 	find . -type f \( -name "*.c" -o -name "*.h" \) -print0 | xargs -0 clang-format -style=LLVM -i
 
 #/-----linked_list-----/#
-linked_list.o: linked_list.c linked_listr.h
+linked_list.o: linked_list.c linked_list.h
 	gcc -g -c linked_list.c -o linked_list.o
 
 linked_list.a: linked_list.o
