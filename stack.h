@@ -14,6 +14,6 @@ stack* stack_create();
 int stack_push(stack* st, int value);
 int stack_pop(stack* st);
 int stack_peek(stack* st);
-void stack_increase(stack* st);
+int stack_increase(stack* st);
 void stack_free(stack* st);
 int stack_is_empty(stack* st);
