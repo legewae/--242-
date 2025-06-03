@@ -4,16 +4,16 @@
 #include "linear_allocator.h"
 
 void test_create_allocator() {
-	linear_allocator ln = linear_allocator_init(1024);
-	assert(ln != NULL);
+	linear_allocator* ln = linear_allocator_init(1024);
+	assert(!(ln == NULL));
 	linear_allocator_free(ln);
 }
 void test_alloc() {
-	linear_allocator ln = linear_allocator_init(sizeof(int)*2);
+	linear_allocator* ln = linear_allocator_init(sizeof(int)*2);
 
-	int* a = (int*)linear_alloc(sizeof(int));
-	int* b = (int*)linear_alloc(sizeof(int));
-	int* c = (int*)linear_alloc(sizeof(int));
+	int* a = (int*)linear_alloc(ln,sizeof(int));
+	int* b = (int*)linear_alloc(ln,sizeof(int));
+	int* c = (int*)linear_alloc(ln,sizeof(int));
 
 	a = 2;
 	b = 3;
@@ -23,7 +23,7 @@ void test_alloc() {
 	linear_allocator_free(ln);
 }
 void test_alloc_reset() {
-	linear_allocator ln = linear_allocator_init(sizeof(int)*2);
+	linear_allocator* ln = linear_allocator_init(sizeof(int)*2);
 
 	int* a = (int*)linear_alloc(ln,sizeof(int));
 	linear_allocator_reset(ln);
@@ -37,7 +37,7 @@ void test_alloc_reset() {
 }
 
 void test_diff_types() {
-	linear_allocator ln = linear_allocator_init(sizeof(int) * 2);
+	linear_allocator* ln = linear_allocator_init(sizeof(int) * 2);
 
 	int* a = (int*)linear_alloc(ln, sizeof(int));
 	linear_allocator_reset(ln);
