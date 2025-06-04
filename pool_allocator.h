@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdint.h>
+
+
 typedef struct {
 	void* memory;
 	uint8_t* free_blocks_bitmask;
