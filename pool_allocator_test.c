@@ -7,7 +7,7 @@
 
 void test_allocator_init(){
 	pool_allocator* pl = pool_allocator_init(100,4);
-	assert(!pl == NULL);
+	assert(!(pl==NULL));
 	pool_allocator_free(pl);
 }
 
@@ -24,7 +24,7 @@ void test_free() {
 	int32_t* number = pool_alloc(pl);
 	*number = 123;
 	assert(*number == 123);
-	pool_free(pl);
+	pool_free(pl,number);
 	number = pool_alloc(pl);
 	assert(*number == 123);
 	pool_allocator_free(pl);
