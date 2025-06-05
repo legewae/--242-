@@ -23,7 +23,7 @@ hashtable.o: hashtable.c hashtable.h pool_allocator.h
 hashtable.a: hashtable.o pool_allocator.o
 	ar rc hashtable.a hashtable.o pool.o
 
-hashtable_test.o: ynamic_array_test.c hashtable.h pool_allocator.h
+hashtable_test.o: hashtable_test.c hashtable.h pool_allocator.h
 	gcc -g -c hashtable_test.c -o hashtable_test.o
 
 hashtable_test: hashtable_test.o hashtable.a pool_allocator.a
