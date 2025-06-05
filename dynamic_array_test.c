@@ -61,12 +61,12 @@ void test_add_element_exceeding_capacity() {
 	linear_allocator* al = linear_allocator_init(1024);
 	ArrayList* list;
 	arraylist_init(list, al);
-	for (size_t i = 0; i < 10; i++) {
+	for (int i = 0; i < 10; i++) {
 		int* a = i;
 		arraylist_add(list, a, list.size);
 	}
 	assert(list->size == 10 && list->capacity == 16);
-	for (size_t i = 0; i < 10; i++) {
+	for (int i = 0; i < 10; i++) {
 		assert(*arraylist_get(int*)(list, i) == i);
 	}
 	linear_allocator_free(al);
