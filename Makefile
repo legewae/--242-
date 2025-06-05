@@ -14,11 +14,11 @@ fmt_mac:
 linear_allocator.o: linear_allocator.c linear_allocator.h
 	gcc -g -c linear_allocator.c -o linear_allocator.o
 
-linear_allocator.a: linear_allocator.o linear_allocator.o
-	ar rc linear_allocator.a linear_allocator.o linear_allocator.o
-
 dynamic_array.o: dynamic_array.c dynamic_array.h linear_allocator.h
 	gcc -g -c dynamic_array.c -o dynamic_array.o
+
+linear_allocator.a: linear_allocator.o
+	ar rc linear_allocator.a linear_allocator.o
 
 dynamic_array.a: dynamic_array.o linear_allocator.o
 	ar rc dynamic_array.a dynamic_array.o linear_allocator.o
@@ -27,7 +27,7 @@ dynamic_array_test.o: dynamic_array_test.c dynamic_array.h linear_allocator.h
 	gcc -g -c dynamic_array_test.c -o dynamic_array_test.o
 
 dynamic_array_test: dynamic_array_test.o dynamic_array.a linear_allocator.a
-	gcc -g -o dynamic_array_test dynamic_array_test.o dynamic_array.a -lm
+	gcc -g -o dynamic_array_test dynamic_array_test.o dynamic_array.a linear_allocator.a -lm
 #/-----dynamic_array-----/#
 
 test: dynamic_array_test
