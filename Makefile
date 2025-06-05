@@ -21,7 +21,7 @@ hashtable.o: hashtable.c hashtable.h pool_allocator.h
 	gcc -g -c hashtable.c -o hashtable.o
 
 hashtable.a: hashtable.o pool_allocator.o
-	ar rc hashtable.a hashtable.o pool.o
+	ar rc hashtable.a hashtable.o pool_allocator.o
 
 hashtable_test.o: hashtable_test.c hashtable.h pool_allocator.h
 	gcc -g -c hashtable_test.c -o hashtable_test.o
