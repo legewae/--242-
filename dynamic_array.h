@@ -1,5 +1,5 @@
 #include <stddef.h>
-
+#include "linear_allocator.h"
 typedef struct {
     void** data;
     size_t size;
