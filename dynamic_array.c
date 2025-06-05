@@ -6,13 +6,6 @@
 #include "linear_allocator.h"
 #include "dynamic_array.h"
 
-typedef struct {
-    void** data;
-    size_t size;
-    size_t capacity;
-    linear_allocator* al;
-} ArrayList;
-
 void arraylist_init(ArrayList* list, linear_allocator* al) {
     list->data = NULL;
     list->al = al;
