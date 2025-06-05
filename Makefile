@@ -38,7 +38,7 @@ dynamic_array_test: dynamic_array_test.o  linear_allocator.a dynamic_array.a
 	gcc -g -o dynamic_array_test dynamic_array_test.o dynamic_array.a linear_allocator.a -lm
 #/-----dynamic_array-----/#
 
-test: dynamic_array_test
+test: dynamic_array_test linear_allocator_test
 	@for test in $(shell find . -maxdepth 1 -type f -regex '.*_test$$'); do \
 		echo "Running $$test"; \
 		         ./$$test || exit 1; \
