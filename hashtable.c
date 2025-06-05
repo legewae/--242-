@@ -2,20 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "pool_allocator.h"
+#include "hashtable.h"
 
-typedef struct {
-	void* data;
-	char* key;
-	bucket* next;
-} bucket;
-
-typedef struct {
-	bucket** buckets;
-	pool_allocator* pl;
-	size_t capacity;
-} HashTable;
 
 int hashfunction(const char* key, size_t size) {
 	int hash = 0;
