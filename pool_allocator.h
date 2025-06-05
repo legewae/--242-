@@ -1,3 +1,6 @@
+#ifndef POOL_ALLOCATOR
+#define POOL_ALLOCATOR
+
 #include <stdio.h>
 #include <stdint.h>
 
@@ -12,3 +15,5 @@ pool_allocator* pool_allocator_init(size_t block_amount, size_t block_size);
 void* pool_alloc(pool_allocator* pl);
 void pool_free(pool_allocator* pl, void* pointer);
 void pool_allocator_free(pool_allocator* pl);
+
+#endif
