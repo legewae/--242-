@@ -4,7 +4,7 @@
 #include "pool_allocator.h"
 #include "stddef.h"
 
-typedef struct bucket;
+typedef struct bucket bucket;
 
 typedef struct {
 	void* data;
